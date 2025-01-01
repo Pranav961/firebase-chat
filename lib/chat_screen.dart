@@ -8,17 +8,15 @@ class ChatScreen extends StatelessWidget {
 
   final ChatController controller = Get.put(ChatController());
 
-  void initState() {
-    controller.fetchChatAndGroups();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black87,
       body: Obx(() {
         if (controller.chatUsers.isEmpty) {
-          return const Center(child: CircularProgressIndicator(color: Colors.blue));
+          return const Center(
+            child: CircularProgressIndicator(color: Colors.blue),
+          );
         }
         return ListView.builder(
           itemCount: controller.chatUsers.length,
@@ -62,7 +60,7 @@ class ChatScreen extends StatelessWidget {
                               )
                             : Text(
                                 avatarLetter,
-                                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30,color: Colors.black87),
+                                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.black87),
                               ),
                       ),
                       Padding(
@@ -71,13 +69,18 @@ class ChatScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              isGroup ? item['name']: item['name'] ?? "",
+                              isGroup ? item['name'] ?? "" : item['name'] ?? "",
                               style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
                             ),
                             const SizedBox(height: 10),
-                            Text(
-                              item['lastMessage'] ?? "",
-                              style: const TextStyle(fontSize: 16),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width*0.4,
+                              child: Text(
+                                item['lastMessage'] ?? "",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(fontSize: 16),
+                              ),
                             ),
                           ],
                         ),

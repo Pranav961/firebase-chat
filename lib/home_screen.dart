@@ -9,9 +9,9 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   final List screens = [
-     AllUsersScreen(),
-     ChatScreen(),
-     ProfileScreen(),
+    AllUsersScreen(),
+    ChatScreen(),
+    ProfileScreen(),
   ];
 
   final ChatController controller = Get.put(ChatController());
@@ -19,7 +19,6 @@ class HomeScreen extends StatelessWidget {
   void initState() {
     controller.fetchUsers();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -96,17 +95,17 @@ class HomeScreen extends StatelessWidget {
         return screens[controller.currentIndex.value];
       }),
       bottomNavigationBar: Obx(() {
-        return BottomNavigationBar(backgroundColor: Colors.black87,
+        return BottomNavigationBar(
+          backgroundColor: Colors.black87,
           selectedItemColor: Colors.blue[300],
           unselectedItemColor: Colors.white,
           selectedLabelStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           currentIndex: controller.currentIndex.value,
           onTap: (index) {
             controller.setCurrentIndex(index);
-            if(index == 1){
+            if (index == 1) {
               controller.fetchChatAndGroups();
             }
-
           },
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
