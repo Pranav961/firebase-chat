@@ -85,6 +85,7 @@ class ChatScreen extends StatelessWidget {
                           ],
                         ),
                       ),
+
                       const Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
