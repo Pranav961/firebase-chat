@@ -74,7 +74,7 @@ class ChatScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width*0.4,
+                              width: MediaQuery.of(context).size.width * 0.4,
                               child: Text(
                                 item['lastMessage'] ?? "",
                                 maxLines: 1,
@@ -85,7 +85,6 @@ class ChatScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-
                       const Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
