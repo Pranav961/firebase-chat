@@ -62,7 +62,7 @@ class UsersController extends GetxController {
 
       return chatId;
     } catch (e) {
-      print("Error opening chat: $e");
+      debugPrint("Error opening chat: $e");
       rethrow;
     }
   }
