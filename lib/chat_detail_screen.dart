@@ -17,7 +17,9 @@ class ChatDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ChatDetailController controller = Get.put(ChatDetailController(chatId: chatId, isGroup: isGroup, selectedUserId: selectedUserId));
+    final ChatDetailController controller = Get.put(
+      ChatDetailController(chatId: chatId, isGroup: isGroup, selectedUserId: selectedUserId),
+    );
 
     return Scaffold(
       backgroundColor: Colors.black87,
